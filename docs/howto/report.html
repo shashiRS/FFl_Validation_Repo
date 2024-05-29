@@ -1,0 +1,512 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>TSF Report &#8212; ADAS TSF Examples 0.16.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'howto/report';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Overview Page" href="overview_page.html" />
+    <link rel="prev" title="TSF User WebUI registration" href="user_webui_registration.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup/setup.html">Setup Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../howto.html">How To</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_registration.html">TSF User registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_webui_registration.html">TSF User WebUI registration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TSF Report</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#output-folder-structure">Output Folder structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tsf-processing-output">TSF Processing output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tsf-reporting-output">TSF Reporting output</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#html-report">html report</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="overview_page.html">Overview Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview_page.html#testcase-page">Testcase Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_a_wheel.html">Build a Wheel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expected_result_interval.html">Expected Result Interval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html">Uniform Resource Identifier (URI)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+</ul>
+</div>
+        <div class="sidebar-primary-item">
+  <div class="tocsection sourcelink">
+    <a href="../_sources/howto/report.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+        <div class="sidebar-primary-item">
+<div id="searchbox"></div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/howto/report.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TSF Report</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-folder-structure">Output Folder structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tsf-processing-output">TSF Processing output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tsf-reporting-output">TSF Reporting output</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#html-report">html report</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="tsf-report">
+<h1>TSF Report<a class="headerlink" href="#tsf-report" title="Permalink to this heading">#</a></h1>
+<p>Test Scripting Foundation (TSF) currently outputs HTML reports in general but additional outputs can be customized or added by the users in order to statisfy their requirements since all results are stored in the Oracle database.
+TSF does not support storage of images, graphics or signal data to the database in the current setup.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We are using a local debug report as a base for explaining the reporting structure.
+Production reports might vary based on user’s requirements and changes.</p>
+</div>
+<section id="output-folder-structure">
+<h2>Output Folder structure<a class="headerlink" href="#output-folder-structure" title="Permalink to this heading">#</a></h2>
+<p>The TSF output folder contains outputs from two processes which we would from now on address as:</p>
+<ul class="simple">
+<li><p><strong>TSF Processing output</strong></p></li>
+<li><p><strong>TSF Reporting output</strong></p></li>
+</ul>
+<section id="tsf-processing-output">
+<h3>TSF Processing output<a class="headerlink" href="#tsf-processing-output" title="Permalink to this heading">#</a></h3>
+<p>The processing output contains:</p>
+<img alt="../_images/out_folder_structure.png" class="align-center" src="../_images/out_folder_structure.png" />
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>recipes folder</strong> contains JSON files which contain a mapping of all the relevant information to process a recording.</dt><dd><p>Therefore, recipes are created on a per recording basis i.e. every recording considered shall have a recipe associated
+with it. The recipe contains information such as recording path, input bsig path, testcases to be executed, teststeps
+to be executed, and more.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>report folder</strong> contains the HTML report (and its dependencies such as videos, pictures, etc.) which can be delivered</dt><dd><p>to customers or users of the report. This folder contains sub-folders which are discussed in detail in the following
+sections. (some parts of the report are created during the processing itself)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>testcase hyphenated teststep folders (testcase_spec_tag-teststep_number)</strong> are created for each testcase and each test</dt><dd><p>step and contain JSON files that hold additional data which are saved during the processing step, to be used during
+reporting step (such as series data for signal plots, scatter plots, histograms, etc.)</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>recipes_overview.csv</strong> This CSV file provides mapping and overview of recipes (in the recipe folder) with respect to</dt><dd><p>recording meas id, recording file path, and testcases.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>debug.sqlite (only for debug local reports)</strong> is created for local debug reports. It is an instance of the Oracle DB</dt><dd><p>and based on this all the processing and reporting is executed.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>run_spec.json</strong> based on the input run_spec.json file this generalized run_spec file is created. This file has all the</dt><dd><p>required information for processing a TSF report.</p>
+</dd>
+</dl>
+</li>
+<li><p><strong>processing_graph.gv</strong> is a graphical representation of all the internal processes which take place. This could be used for providing a brief overview as well as debugging and target problem points.</p></li>
+</ul>
+</section>
+<section id="tsf-reporting-output">
+<h3>TSF Reporting output<a class="headerlink" href="#tsf-reporting-output" title="Permalink to this heading">#</a></h3>
+<p>The reporting folder contains:</p>
+<ul class="simple">
+<li><p><strong>fragments folder</strong> contains fragments or HTML code for the pages of the report.</p></li>
+<li><p><strong>html folder</strong> contains the main HTML report which is discussed further in detail.</p></li>
+<li><p><strong>video folder</strong> contains video files for the videos for events in the report (if events were created and video files were available at recording locations).</p></li>
+</ul>
+<section id="html-report">
+<h4>html report<a class="headerlink" href="#html-report" title="Permalink to this heading">#</a></h4>
+<p>The html folder contains following folder structure:</p>
+<ul class="simple">
+<li><p><strong>birdeye folder</strong> contains all the birdeyes which were requested and generated.</p></li>
+<li><p><strong>events</strong> contains all the event.html pages.</p></li>
+<li><p><strong>meta folder</strong> contains <a class="reference internal" href="overview_page.html#collection-overview"><span class="std std-ref">collection_overview.html</span></a> and <a class="reference internal" href="overview_page.html#tools-section"><span class="std std-ref">itinerary.html</span></a> files.</p></li>
+<li><p><strong>ref folder</strong> contains three sub-folders i.e. FRONT, LEFT and RIGHT which contain reference camera pictures of an event when requested.</p></li>
+<li><p><strong>static folder</strong> contains all static elements of the report.</p></li>
+<li><p><strong>statistics folder</strong> contains all the statistics html pages.</p></li>
+<li><p><strong>testcases folder</strong> contains all the testcase html pages.</p></li>
+<li><p><strong>teststeps folder</strong> contains all the teststep html pages.</p></li>
+<li><p><strong>index.html file</strong> is the homepage of the HTML report where you would be welcomed to the Overview Page. A brief overview of this page is discussed <a class="reference internal" href="overview_page.html#tsf-report-overview-page"><span class="std std-ref">here</span></a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <em>emphasised</em> folders are not created in general. These are only created when these elements are requested to be a part of the report.</p>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="user_webui_registration.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">TSF User WebUI registration</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="overview_page.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Overview Page</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output-folder-structure">Output Folder structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tsf-processing-output">TSF Processing output</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tsf-reporting-output">TSF Reporting output</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#html-report">html report</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By BA ADAS ENP SIMU KPI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2012, Continental AG.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

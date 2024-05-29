@@ -1,0 +1,4 @@
+*.bsig filter=lfs diff=lfs merge=lfs -text
+*.rrec filter=lfs diff=lfs merge=lfs -text
+*.erg filter=lfs diff=lfs merge=lfs -text
+*.erg.info filter=lfs diff=lfs merge=lfs -text

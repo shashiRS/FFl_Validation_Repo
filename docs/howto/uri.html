@@ -1,0 +1,600 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Uniform Resource Identifier (URI) &#8212; ADAS TSF Examples 0.16.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'howto/uri';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorials" href="../tutorials.html" />
+    <link rel="prev" title="Expected Result Interval" href="expected_result_interval.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup/setup.html">Setup Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../howto.html">How To</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_registration.html">TSF User registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_webui_registration.html">TSF User WebUI registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="report.html">TSF Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview_page.html">Overview Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview_page.html#testcase-page">Testcase Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_a_wheel.html">Build a Wheel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expected_result_interval.html">Expected Result Interval</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Uniform Resource Identifier (URI)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#uuid">UUID</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-uri">Using URI</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#testcase">Testcase</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#teststep">Teststep</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#event">Event</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#assessment">Assessment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+</ul>
+</div>
+        <div class="sidebar-primary-item">
+  <div class="tocsection sourcelink">
+    <a href="../_sources/howto/uri.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+        <div class="sidebar-primary-item">
+<div id="searchbox"></div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/howto/uri.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Uniform Resource Identifier (URI)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uuid">UUID</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-uri">Using URI</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#testcase">Testcase</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#teststep">Teststep</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#event">Event</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#assessment">Assessment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="uniform-resource-identifier-uri">
+<h1>Uniform Resource Identifier (URI)<a class="headerlink" href="#uniform-resource-identifier-uri" title="Permalink to this heading">#</a></h1>
+<p><em>TSF-563: URI New in version 2.4.9.</em></p>
+<p>A Uniform Resource Identifier (URI) is a unique set of characters that identifies
+a logical or physical resource used by web technologies. URIs may be used to identify anything,
+including real-world objects, such as people and places, concepts, or information
+resources such as web pages and books etc.</p>
+<p>TSF currently uses the reference class path as a means to identify testcases, teststeps, events, and assessments.
+With the URI approach, test engineers can refactor their package structure without worrying about changed class paths.
+This would be helpful in certain deployment scenarios where a change in classpath might affect during execution and
+therefore resulting in unforeseen issues in the pipeline.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are interested finding out more about URI you can check this <a class="reference external" href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier">wiki</a></p>
+</div>
+<section id="uuid">
+<h2>UUID<a class="headerlink" href="#uuid" title="Permalink to this heading">#</a></h2>
+<p>A universally unique identifier (UUID) is a 128-bit label used for information in computer systems.
+When generated according to the standard methods, UUIDs are, practically unique.</p>
+<p>In the following code block, you can easily generate a unique identifier (uuid4).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">uuid</span>
+<span class="hll"><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span>
+</span><span class="hll"><span class="n">UUID</span><span class="p">(</span><span class="s1">&#39;3042137c-284f-431a-9ab8-8dae293b5b77&#39;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<section id="using-uri">
+<h3>Using URI<a class="headerlink" href="#using-uri" title="Permalink to this heading">#</a></h3>
+<p>In this section we would briefly discuss how to decorate the classes.
+.. code-block:: python</p>
+<blockquote>
+<div><p>&#64;uri(object_type://component/uuid4)</p>
+</div></blockquote>
+<p>Here,</p>
+<ul class="simple">
+<li><p><strong>&#64;uri</strong> is a class decorator for testcases, teststeps, events, and assessments.</p></li>
+<li><p><strong>object_type</strong> is the type of object where the URI is used i.e. testcase, teststep, event, or assessment.</p></li>
+<li><p><strong>component</strong> is a internal function used for development such as EBA, ACC, CVF, RDI, etc.</p></li>
+<li><p><strong>uuid4</strong> is the universally unique identifier.</p></li>
+</ul>
+<p>Now, we know how to decorate our classes with URIs. Let’s have a look at the following sub-sections, how to register our
+testcases, teststeps, events, and assessments with URI as a decorator.</p>
+<section id="testcase">
+<h4>Testcase<a class="headerlink" href="#testcase" title="Permalink to this heading">#</a></h4>
+<p>In testcases, the URI can be used in the following way,</p>
+<p>for a generic testcase,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="nd">@uri</span><span class="p">(</span><span class="s2">&quot;testcase://component/e4d2a32b-76ed-4371-b00d-162f823cadc9&quot;</span><span class="p">)</span>
+</span><span class="nd">@register_inputs</span><span class="p">(</span><span class="s2">&quot;/Project-1/example-2&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">class</span> <span class="nc">ExampleKpiTestCase</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+</span>    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">test_steps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">ExampleTestStep1</span><span class="p">,</span> <span class="n">ExampleTestStep2</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>whereas for Parameterized Testcases with Parameterized Teststeps,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="k">class</span> <span class="nc">ExampleParameterizedTestCaseUri</span><span class="p">(</span><span class="n">ParameterizedTestCase</span><span class="p">):</span>
+</span>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">compute_parameters</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">ParameterSet</span><span class="p">]:</span>
+        <span class="n">parameters_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">111</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">333</span><span class="p">]</span>
+        <span class="n">parameters_2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">999</span><span class="p">,</span> <span class="mi">888</span><span class="p">,</span> <span class="mi">777</span><span class="p">]</span>
+        <span class="n">parameter_sets</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">ParameterSet</span><span class="p">(</span>
+<span class="hll">                <span class="n">uri</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;testcase://component/455f53af-7a34-4e70-9add-81afb265c3da?</span>
+</span><span class="hll">                <span class="p">{</span><span class="n">urlencode</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">parameter_1</span><span class="o">=</span><span class="n">parameter_1</span><span class="p">,</span> <span class="n">parameter_2</span><span class="o">=</span><span class="n">parameter_2</span><span class="p">))}</span><span class="s2">&quot;,</span>
+</span>                <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Parameterized testcase with first parameter: </span><span class="si">{</span><span class="n">parameter_1</span><span class="si">}</span><span class="s2">, second parameter: </span><span class="si">{</span><span class="n">parameter_2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A generic parameterized testcase.&quot;</span><span class="p">,</span>
+                <span class="n">assignments</span><span class="o">=</span><span class="p">[</span>
+                    <span class="n">Assignment</span><span class="p">(</span>
+                        <span class="n">ctype</span><span class="o">=</span><span class="n">ProcessingInputSet</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;/function-1/project-1/testcase-</span><span class="si">{</span><span class="n">parameter_1</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">parameter_2</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+                <span class="p">],</span>
+                <span class="n">verifies</span><span class="o">=</span><span class="p">[</span>
+                    <span class="sa">f</span><span class="s2">&quot;requirement_testcase-</span><span class="si">{</span><span class="n">parameter_1</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">parameter_2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="p">],</span>
+                <span class="n">doors_url</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;ts_requirement_testcase-</span><span class="si">{</span><span class="n">parameter_1</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">parameter_2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">teststep_parameters</span><span class="o">=</span><span class="p">[</span>
+                    <span class="n">TeststepParameter</span><span class="p">(</span>
+                        <span class="n">test_step</span><span class="o">=</span><span class="n">ExampleTestStep</span><span class="p">,</span>
+                        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Check for activation&quot;</span><span class="p">,</span>
+<span class="hll">                        <span class="n">uri</span><span class="o">=</span><span class="p">(</span>
+</span><span class="hll">                            <span class="s2">&quot;teststep://component/dbc28e93-335f-43a0-b7ce-cd0b43ba9c16?&quot;</span>
+</span><span class="hll">                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">urlencode</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">parameter_1</span><span class="o">=</span><span class="n">parameter_1</span><span class="p">,</span> <span class="n">parameter_2</span><span class="o">=</span><span class="n">parameter_2</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class="hll">                        <span class="p">),</span>
+</span>                        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Checks the correct activation in time.&quot;</span><span class="p">,</span>
+                        <span class="n">expected_result</span><span class="o">=</span><span class="n">ExpectedResult</span><span class="p">(</span>
+                            <span class="mi">50</span><span class="p">,</span>
+                            <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;%&quot;</span><span class="p">,</span>
+                            <span class="n">operator</span><span class="o">=</span><span class="n">RelationOperator</span><span class="o">.</span><span class="n">GREATER</span><span class="p">,</span>
+                            <span class="n">aggregate_function</span><span class="o">=</span><span class="n">AggregateFunction</span><span class="o">.</span><span class="n">ALL</span><span class="p">,</span>
+                        <span class="p">),</span>
+                        <span class="n">doors_url</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                    <span class="p">)</span>
+                <span class="p">],</span>
+                <span class="n">parameter_1</span><span class="o">=</span><span class="n">parameter_1</span><span class="p">,</span>
+                <span class="n">parameter_2</span><span class="o">=</span><span class="n">parameter_2</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="k">for</span> <span class="n">en_parameter_2</span><span class="p">,</span> <span class="n">parameter_2</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">parameters_2</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">en_parameter_1</span><span class="p">,</span> <span class="n">parameter_1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">parameters_1</span><span class="p">)</span>
+        <span class="p">]</span>
+        <span class="k">return</span> <span class="n">parameter_sets</span>
+
+    <span class="n">parameter_sets</span> <span class="o">=</span> <span class="n">compute_parameters</span>
+</pre></div>
+</div>
+</section>
+<section id="teststep">
+<h4>Teststep<a class="headerlink" href="#teststep" title="Permalink to this heading">#</a></h4>
+<p>In a Teststep the URI can be used in the following way,</p>
+<p>for a generic teststep,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="nd">@uri</span><span class="p">(</span><span class="s2">&quot;teststep://component/091eccf7-c472-4bcd-8462-536151e80bb8&quot;</span><span class="p">)</span>
+</span><span class="nd">@teststep_definition</span><span class="p">(</span>
+    <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;Count activations of signal A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Example for counting an activation rate. Over more than a single input.&quot;</span><span class="p">,</span>
+    <span class="n">ExpectedResult</span><span class="p">(</span>
+        <span class="mf">0.3</span><span class="p">,</span>
+        <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;1/km&quot;</span><span class="p">,</span>
+        <span class="n">numerator_is_events</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">operator</span><span class="o">=</span><span class="n">RelationOperator</span><span class="o">.</span><span class="n">LESS_OR_EQUAL</span><span class="p">,</span>
+        <span class="n">aggregate_function</span><span class="o">=</span><span class="n">AggregateFunction</span><span class="o">.</span><span class="n">KPI</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="nd">@register_signals</span><span class="p">(</span><span class="n">EXAMPLE_1</span><span class="p">,</span> <span class="n">ExampleSignals1</span><span class="p">)</span>
+<span class="hll"><span class="k">class</span> <span class="nc">ExampleTestStep1</span><span class="p">(</span><span class="n">TestStep</span><span class="p">):</span>
+</span>    <span class="sd">&quot;&quot;&quot;Dummy test step.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>for a Confusion Matrix TestStep,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="nd">@uri</span><span class="p">(</span><span class="s2">&quot;teststep://component/7c782c1e-a268-43c9-8a67-c9a3300e29e4&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="k">class</span> <span class="nc">MyConfusionMatrixTestStep2</span><span class="p">(</span><span class="n">ConfusionMatrixTestStep</span><span class="p">):</span>
+</span>    <span class="sd">&quot;&quot;&quot;Dummy confusion matrix test step.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</section>
+<section id="event">
+<h4>Event<a class="headerlink" href="#event" title="Permalink to this heading">#</a></h4>
+<p>For events, the URI can be used in the following way,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="nd">@uri</span><span class="p">(</span><span class="s2">&quot;event://component/ad2b8d16-abfe-4bb0-83eb-2f4c9f49551e&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="k">class</span> <span class="nc">ExampleEvent</span><span class="p">(</span><span class="n">Event</span><span class="p">):</span>
+</span>    <span class="sd">&quot;&quot;&quot;Example Event.&quot;&quot;&quot;</span>
+
+    <span class="n">assessment_type</span> <span class="o">=</span> <span class="n">ExampleAssessment</span>
+
+    <span class="n">prop_1</span> <span class="o">=</span> <span class="n">EventAttribute</span><span class="p">(</span><span class="s2">&quot;Prop 1&quot;</span><span class="p">,</span> <span class="n">AttributeType</span><span class="o">.</span><span class="n">FLOAT</span><span class="p">)</span>
+    <span class="n">prop_2</span> <span class="o">=</span> <span class="n">EventAttribute</span><span class="p">(</span><span class="s2">&quot;Prop 2&quot;</span><span class="p">,</span> <span class="n">AttributeType</span><span class="o">.</span><span class="n">INTEGER</span><span class="p">)</span>
+    <span class="n">prop_3</span> <span class="o">=</span> <span class="n">EventAttribute</span><span class="p">(</span><span class="s2">&quot;Prop 3&quot;</span><span class="p">,</span> <span class="n">AttributeType</span><span class="o">.</span><span class="n">STRING</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="assessment">
+<h4>Assessment<a class="headerlink" href="#assessment" title="Permalink to this heading">#</a></h4>
+<p>For Assessments, the URI can be used in the following way:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="nd">@uri</span><span class="p">(</span><span class="s2">&quot;assessment://component/fcda7c46-863d-40ed-8a9c-0e7c029950b0&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="k">class</span> <span class="nc">ExampleAssessment</span><span class="p">(</span><span class="n">ExplicitAssessment</span><span class="p">):</span>
+</span>    <span class="sd">&quot;&quot;&quot;An example assessment.&quot;&quot;&quot;</span>
+
+    <span class="n">states</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;TP&quot;</span><span class="p">:</span> <span class="n">asf</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="s2">&quot;True Positive&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+        <span class="s2">&quot;Testing Ground&quot;</span><span class="p">:</span> <span class="n">asf</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="s2">&quot;Testing Ground&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+        <span class="s2">&quot;Irrelevant&quot;</span><span class="p">:</span> <span class="n">asf</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="s2">&quot;Irrelevant&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+        <span class="s2">&quot;FP&quot;</span><span class="p">:</span> <span class="n">asf</span><span class="o">.</span><span class="n">state</span><span class="p">(</span><span class="s2">&quot;False Positive&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+    <span class="p">}</span>
+    <span class="n">comment</span> <span class="o">=</span> <span class="n">aaf</span><span class="o">.</span><span class="n">string_attribute</span><span class="p">(</span><span class="s2">&quot;Comment&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="expected_result_interval.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Expected Result Interval</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../tutorials.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tutorials</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uuid">UUID</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-uri">Using URI</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#testcase">Testcase</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#teststep">Teststep</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#event">Event</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#assessment">Assessment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By BA ADAS ENP SIMU KPI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2012, Continental AG.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
