@@ -188,7 +188,9 @@ def main(data_folder: Path, temp_dir: Path = None, open_explorer=True):
 
 
 if __name__ == "__main__":
-    working_directory = Path(tempfile.mkdtemp("_tsf"))
+    #working_directory = Path(tempfile.mkdtemp("_tsf"))
+    working_directory = Path('\\Ozl9704w\d\Reports_FFL')
+
     print(working_directory)
     data_folder = working_directory / "data"
     
