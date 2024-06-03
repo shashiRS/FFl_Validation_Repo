@@ -189,8 +189,9 @@ def main(data_folder: Path, temp_dir: Path = None, open_explorer=True):
 
 if __name__ == "__main__":
     working_directory = Path(tempfile.mkdtemp("_tsf"))
-
+    print(working_directory)
     data_folder = working_directory / "data"
+    
     out_folder = working_directory / "out"
 
     main(data_folder=data_folder, temp_dir=out_folder, open_explorer=True)
