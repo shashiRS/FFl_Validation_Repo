@@ -1,5 +1,5 @@
 from pathlib import Path
-from LSCA_constants import ExampleSignals
+from LSCA_constant import ExampleSignals
 from tsf.io.bsig import BsigWriter
 import datetime
 import numpy as np
@@ -10,6 +10,7 @@ import scipy
 ###################################################################
 # Note: generate_bsig not relevant for users ######################
 ###################################################################
+
 
 def generate_bsig(bsig: Path):
     """Generate a BSIG for the example signal definition."""
