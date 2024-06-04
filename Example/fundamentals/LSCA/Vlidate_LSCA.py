@@ -199,6 +199,7 @@ if __name__ == "__main__":
         
         contents = "".join(str(working_directory))
         f.write(contents)
+        f.write("\n")
 
 
     data_folder = working_directory / "data"
