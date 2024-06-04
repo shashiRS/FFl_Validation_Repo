@@ -193,6 +193,7 @@ if __name__ == "__main__":
     timestr = time.strftime("%Y%m%d_%H%M%S")
     
     pat= "\\Ozl9704w\d\Report_Files\FFL_"+timestr
+    #pat= "\\cw01.contiwan.com\Root\Loc\blr3\didr3320\ADC544NN-Nissan\Report_Files\FFL_"+timestr
     working_directory = Path(pat)
     
     data_folder = working_directory / "data"
