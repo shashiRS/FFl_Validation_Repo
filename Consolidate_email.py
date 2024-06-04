@@ -15,7 +15,7 @@ def send_email_with_attachment(sender_email, sender_password, recipient_email, s
     # Create a multipart message
     msg = MIMEMultipart('alternative')
     msg['From'] = sender_email
-    msg['To'] = recipient_email
+    msg['To'] = ", ".join(recipient_email)
     msg['Subject'] = subject
     
     #greetings = "Hello Team,\n\n\n"
@@ -81,8 +81,7 @@ def retrieve_html_info(report_file):
 if __name__ == "__main__":
     sender_email = 'uig88154@contiwan.com'
     sender_password = 'Helloworld@123'
-    recipient_email = ['puram.hari.sudarshan.rahul@continental-corporation.com']
-    recipient_email_list = ", ".join(recipient_email)
+    recipient_email = ['puram.hari.sudarshan.rahul@continental-corporation.com','shashikala.r.s@continental-corporation.com']
     subject = '[ADC544NN16] FFL JENKINS CI/CD'
     body_html = """
     <!DOCTYPE html>
@@ -220,4 +219,4 @@ if __name__ == "__main__":
     #     archived = shutil.make_archive(base_path + r'\report', 'zip', base_path + r'\out')
 
     # attachment_path = base_path + r'\report.zip'
-    send_email_with_attachment(sender_email, sender_password, recipient_email_list, subject, body_html)
+    send_email_with_attachment(sender_email, sender_password, recipient_email, subject, body_html)
