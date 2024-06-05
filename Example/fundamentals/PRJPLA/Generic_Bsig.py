@@ -1,5 +1,5 @@
 from pathlib import Path
-from LSCA_constant import ExampleSignals
+from TRJPLA_constant import ExampleSignals
 from tsf.io.bsig import BsigWriter
 import datetime
 import numpy as np
