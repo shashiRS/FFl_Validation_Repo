@@ -34,7 +34,7 @@ from tsf.core.testcase import (
 from tsf.core.utilities import debug
 from tsf.db.results import Result
 
-from LSCA_constant import ExampleSignals
+from TRJPLA_constant import ExampleSignals
 from pathlib import Path
 
 
