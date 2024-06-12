@@ -54,7 +54,7 @@ EXAMPLE = "uiVersionNumber"
     step_number=1,
     name="Check for TrjPlaParkingBoxPort.uiVersionNumber",
     description="Example for checking the activation of 'TrjPlaParkingBoxPort.uiVersionNumber' signal",
-    expected_result="=100",
+    expected_result="= 100",
 )
 @register_signals(alias="EXAMPLE", definition=ExampleSignals)
 class ExampleActivation(TestStep):
@@ -349,27 +349,25 @@ class ExampleMinimalTestCase4(TestCase):
 ############################################################################################
 #5th testcase and teststep completed here
 
+def main(data_folder: Path,temp_dir: Path = tempfile.mkdtemp(), open_explorer=True):
+    # Entry point for debugging during development.
+    #test_recordings = [Path(rf"\\LUFS009X.li.de.conti.de\prj\RADAR\A\B\C\D\test_input_{k}.rrec") for k in range(3)]
+    file_paths = [
+    r'D:\JenkinsServer_Main\workspace\Backup_FFL_test\Next_repo\FFL_output\Usecase_1_E_mor_than_9kmph_Pedistrain_2.1.14.bsig',
+    r'D:\JenkinsServer_Main\workspace\Backup_FFL_test\Next_repo\FFL_output\Usecase_1_E_mor_than_9kmph_Pedistrain_2.1.14rec2.bsig'
+    ]
 
-def main(data_folder: Path, temp_dir: Path = None, open_explorer=True):
-    """Optional, call to debug to set up debugging in the simplest possible way.
-
-    When calling the test case you need to provide a valid input to
-    execute the test (e.g. a BSIG file) and report the result.
-
-    This is only meant to jump start testcase debugging.
-    """
-
+    test_bsigs = [os.path.join(temp_dir, "data", f"{k}") for k in file_paths]   
+    print(test_bsigs)
+    data_folder = os.path.join(temp_dir, "data")
+    os.makedirs(data_folder, exist_ok=True)
     debug(
-        [ExampleMinimalTestCase,ExampleMinimalTestCase1,ExampleMinimalTestCase2,ExampleMinimalTestCase3,ExampleMinimalTestCase4],
-        r'D:\JenkinsServer_Main\workspace\FFL_testing\Next_repo\FFL_output\Usecase_1_E_mor_than_9kmph_Pedistrain_2.1.14.bsig',
+        [ExampleMinimalTestCase, ExampleMinimalTestCase1, ExampleMinimalTestCase2, ExampleMinimalTestCase3, ExampleMinimalTestCase4],
+        *test_bsigs,
         temp_dir=temp_dir,
         open_explorer=open_explorer,
-        kpi_report=False,
-        dev_report=True,
     )
-
     _log.debug("All done.")
-
 
 if __name__ == "__main__":
     #working_directory = Path(tempfile.mkdtemp("_tsf"))
