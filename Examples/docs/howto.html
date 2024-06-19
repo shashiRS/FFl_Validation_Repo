@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>How To &#8212; ADAS TSF Examples 0.16.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'howto';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Debugging" href="howto/debugging.html" />
+    <link rel="prev" title="Setup Python" href="setup/setup.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="quickstart/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup/setup.html">Setup Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How To</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howto/debugging.html">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/user_registration.html">TSF User registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/user_webui_registration.html">TSF User WebUI registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/report.html">TSF Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/overview_page.html">Overview Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/overview_page.html#testcase-page">Testcase Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/building_a_wheel.html">Build a Wheel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/expected_result_interval.html">Expected Result Interval</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/uri.html">Uniform Resource Identifier (URI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/external_link.html">TSF Report - External Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/hpc.html">Submit to HPC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/assessment_sync_tool.html">TSF Assessment sync tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+</ul>
+</div>
+        <div class="sidebar-primary-item">
+  <div class="tocsection sourcelink">
+    <a href="_sources/howto.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+        <div class="sidebar-primary-item">
+<div id="searchbox"></div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/howto.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How To</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="how-to">
+<h1>How To<a class="headerlink" href="#how-to" title="Permalink to this heading">#</a></h1>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="howto/debugging.html">Debugging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howto/debugging.html#debug-a-test-case-implementation">Debug a test case implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/debugging.html#process-two-bsigs-in-parallel">Process two BSIGs in parallel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howto/user_registration.html">TSF User registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/user_webui_registration.html">TSF User WebUI registration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/report.html">TSF Report</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howto/report.html#output-folder-structure">Output Folder structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="howto/report.html#tsf-processing-output">TSF Processing output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="howto/report.html#tsf-reporting-output">TSF Reporting output</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="howto/report.html#html-report">html report</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howto/overview_page.html">Overview Page</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howto/overview_page.html#report-info-section">Report Info section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/overview_page.html#testcases-section">Testcases section</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="howto/overview_page.html#verdicts">Verdicts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="howto/overview_page.html#overview-section">Overview section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/overview_page.html#tools-section">Tools section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/overview_page.html#statistics-and-events-section">Statistics and Events section</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howto/overview_page.html#testcase-page">Testcase Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/building_a_wheel.html">Build a Wheel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/expected_result_interval.html">Expected Result Interval</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howto/expected_result_interval.html#how-to-use">How to use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/expected_result_interval.html#confidence">Confidence</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howto/uri.html">Uniform Resource Identifier (URI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howto/uri.html#uuid">UUID</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="howto/uri.html#using-uri">Using URI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="howto/uri.html#testcase">Testcase</a></li>
+<li class="toctree-l4"><a class="reference internal" href="howto/uri.html#teststep">Teststep</a></li>
+<li class="toctree-l4"><a class="reference internal" href="howto/uri.html#event">Event</a></li>
+<li class="toctree-l4"><a class="reference internal" href="howto/uri.html#assessment">Assessment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howto/external_link.html">TSF Report - External Links</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howto/external_link.html#adding-external-urls-to-the-report">Adding External URLs to the report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/external_link.html#adding-external-urls-through-statistics-and-static-page">Adding External URLs through Statistics and Static page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howto/hpc.html">Submit to HPC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="howto/hpc.html#prerequisites-hpc-submit">Prerequisites (HPC submit)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/hpc.html#settings-in-run-spec-json">Settings in run_spec.json</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/hpc.html#start-processing-and-report-generation-locally-with-submit-to-hcp">Start processing and report generation locally with submit to HCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/hpc.html#backhaul-for-mixing-hpc-processing-and-local-report-generation">“Backhaul” for mixing HPC processing and local report generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/hpc.html#tipps-for-troubleshooting-and-debugging">Tipps for troubleshooting and debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="howto/hpc.html#special-consideration-for-using-hpc-via-automation-pipeline">Special consideration for using HPC via automation pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="howto/assessment_sync_tool.html">TSF Assessment sync tool</a></li>
+</ul>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="setup/setup.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Setup Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="howto/debugging.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Debugging</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By BA ADAS ENP SIMU KPI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2012, Continental AG.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

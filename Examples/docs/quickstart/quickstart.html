@@ -1,0 +1,578 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Quickstart &#8212; ADAS TSF Examples 0.16.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'quickstart/quickstart';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Setup Python" href="../setup/setup.html" />
+    <link rel="prev" title="ADAS TSF Examples" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<h3><a href="../index.html">Table of Contents</a></h3>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#learner-profile">Learner profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#learning-objectives">Learning Objectives</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#test-scripting-with-tsf">Test scripting with TSF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-up-testcases-and-teststeps">Setting up Testcases and Teststeps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging-the-test-implementation">Debugging the test implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../setup/setup.html">Setup Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto.html">How To</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+</ul>
+</div>
+        <div class="sidebar-primary-item">
+  <div class="tocsection sourcelink">
+    <a href="../_sources/quickstart/quickstart.rst">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+        <div class="sidebar-primary-item">
+<div id="searchbox"></div></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/quickstart/quickstart.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Quickstart</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learner-profile">Learner profile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-scripting-with-tsf">Test scripting with TSF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-testcases-and-teststeps">Setting up Testcases and Teststeps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-the-test-implementation">Debugging the test implementation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading">#</a></h1>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h2>
+<p>You’ll need to know a bit of Python. To work the examples you need install a <a class="reference internal" href="../setup/setup.html"><span class="doc">venv</span></a> with adas-tsf and its dependencies
+installed.</p>
+<section id="learner-profile">
+<h3>Learner profile<a class="headerlink" href="#learner-profile" title="Permalink to this heading">#</a></h3>
+<p>This is a quick overview of test implementation and processing with the TSF library. You should be familiar with
+pandas Dataframes and software testing.</p>
+</section>
+<section id="learning-objectives">
+<h3>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this heading">#</a></h3>
+<p>After reading, you should be able to:</p>
+<ul class="simple">
+<li><p>What a test case and test step is.</p></li>
+<li><p>Know how to map signals</p></li>
+<li><p>Know how to setup the runner</p></li>
+</ul>
+</section>
+</section>
+<section id="test-scripting-with-tsf">
+<h2>Test scripting with TSF<a class="headerlink" href="#test-scripting-with-tsf" title="Permalink to this heading">#</a></h2>
+<p>TSF provides a framework to support test implementation and processing for KPIs.
+The main purpose is the processing of Simulation outputs (e.g. HIL, SIL, VSP) and evaluating the
+output signals on certain behaviors.
+The number of processed outputs can vary from one up to many thousand.</p>
+<p>The outputs are processed in batch without depending on each other in either input order or implementation order.
+With that it is possible to develop and test the test-script implementation on a single input, as shown in this
+quickstart.</p>
+<p>Let’s assume we have some SIL Outputs of an EBA CCRs use-case.</p>
+<p>Use-case parameters:</p>
+<ul class="simple">
+<li><p>Approach ego velocity: 50 km/h</p></li>
+<li><p>Target Overlap: 100%</p></li>
+<li><p>Target rotation: 0°</p></li>
+</ul>
+<p>Evaluation Scope:</p>
+<ul class="simple">
+<li><p>Assert that the EBA function outputs a pre-brake deceleration signal.</p></li>
+<li><p>Assert the reaction is early than 1.1 s TTC</p></li>
+</ul>
+<p>Have a look at parts which interact during the evaluation.
+First the TSF will open the relevant inputs, the signals which need to be read are defined in the signal definition.
+After all signals are read, the test step are processed. For each input of each test-step a result has to be computed.
+Additionally, you may want to add more informal data and statistics which should be reported later on.</p>
+<figure class="align-left" id="id1" style="width: 100%">
+<img alt="../_images/TSF_Processing_intro.drawio.svg" src="../_images/TSF_Processing_intro.drawio.svg" /><figcaption>
+<p><span class="caption-text">Overview on test scripting an processing TSF.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="setting-up-testcases-and-teststeps">
+<h2>Setting up Testcases and Teststeps<a class="headerlink" href="#setting-up-testcases-and-teststeps" title="Permalink to this heading">#</a></h2>
+<p>Lets start with implementing a testcase. Test-cases define the inputs which are valid for the given test-case and
+its test-steps. The test case verdict is computed from the verdicts of its test steps. If one or more test-steps are
+failed the entire testcase will be marked as failed.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nd">@testcase_definition</span><span class="p">(</span>
+<span class="linenos"> 2</span>    <span class="s2">&quot;EX_EBA_000_001&quot;</span><span class="p">,</span>
+<span class="linenos"> 3</span>    <span class="s2">&quot;Example Usecase Test implementation&quot;</span><span class="p">,</span>
+<span class="linenos"> 4</span>    <span class="s2">&quot;This example demonstrates how to process carmaker erg files within the TSF test scripting framework.&quot;</span><span class="p">,</span>
+<span class="linenos"> 5</span><span class="p">)</span>
+<span class="linenos"> 6</span><span class="nd">@register_generic_collection</span><span class="p">(</span><span class="s2">&quot;Example ERG files&quot;</span><span class="p">,</span> <span class="n">discipline</span><span class="o">=</span><span class="s2">&quot;VSP&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="k">class</span> <span class="nc">ExampleUsecaseTestCase</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Example test case.&quot;&quot;&quot;</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>    <span class="nd">@property</span>
+<span class="linenos">11</span>    <span class="k">def</span> <span class="nf">test_steps</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">12</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Define the test steps.&quot;&quot;&quot;</span>
+<span class="linenos">13</span>        <span class="k">return</span> <span class="p">[</span><span class="n">ExampleTestStep</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Test-step will be used to compute result for the read data. You need to define the needed signals by providing a signal
+definition. The dataframe returned from the readers includes a column ‘ts’ which represents the timestamp in micro seconds.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nd">@teststep_definition</span><span class="p">(</span>
+<span class="linenos"> 2</span>    <span class="n">step_number</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="linenos"> 3</span>    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Activation&quot;</span><span class="p">,</span>
+<span class="linenos"> 4</span>    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Check for &#39;some activation&#39;&quot;</span><span class="p">,</span>
+<span class="linenos"> 5</span>    <span class="n">expected_result</span><span class="o">=</span><span class="n">Result</span><span class="p">(</span><span class="n">operator</span><span class="o">=</span><span class="n">RelationOperator</span><span class="o">.</span><span class="n">GREATER_OR_EQUAL</span><span class="p">,</span> <span class="n">numerator</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;%&quot;</span><span class="p">),</span>
+<span class="linenos"> 6</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="nd">@register_signals</span><span class="p">(</span><span class="n">EXAMPLE</span><span class="p">,</span> <span class="n">ExampleSignals</span><span class="p">)</span>
+<span class="linenos"> 8</span><span class="k">class</span> <span class="nc">ExampleTestStep</span><span class="p">(</span><span class="n">TestStep</span><span class="p">):</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Example test step.&quot;&quot;&quot;</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="linenos">12</span>        <span class="n">_log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Starting processing...&quot;</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>        <span class="n">example_signals</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">readers</span><span class="p">[</span><span class="n">EXAMPLE</span><span class="p">]</span><span class="o">.</span><span class="n">signals</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>        <span class="n">activation</span> <span class="o">=</span> <span class="n">example_signals</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">example_signals</span><span class="p">[</span><span class="n">ExampleSignals</span><span class="o">.</span><span class="n">Columns</span><span class="o">.</span><span class="n">ACTIVATION_A</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)]</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">activation</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos">19</span>            <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">measured_result</span> <span class="o">=</span> <span class="n">Result</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;%&quot;</span><span class="p">)</span>
+<span class="linenos">20</span>            <span class="k">return</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span>        <span class="n">activation_time</span> <span class="o">=</span> <span class="n">activation</span><span class="p">[</span><span class="s1">&#39;ts&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos">23</span>        <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">measured_result</span> <span class="o">=</span> <span class="n">Result</span><span class="p">(</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;%&quot;</span><span class="p">)</span>
+<span class="linenos">24</span>        <span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="o">.</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">activation_time</span>
+</pre></div>
+</div>
+<p>A signal definition defines the mapping between the signal name from the input and the column in the read dataframe.
+The read signals are provided to the test steps as a dataframe by it alias.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">class</span> <span class="nc">ExampleSignals</span><span class="p">(</span><span class="n">SignalDefinition</span><span class="p">):</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="sd">&quot;&quot;&quot;Example signals.&quot;&quot;&quot;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>    <span class="k">class</span> <span class="nc">Columns</span><span class="p">(</span><span class="n">SignalDefinition</span><span class="o">.</span><span class="n">Columns</span><span class="p">):</span>
+<span class="linenos"> 5</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Definition of the dataframe columns.&quot;&quot;&quot;</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>        <span class="n">ACTIVATION_A</span> <span class="o">=</span> <span class="s2">&quot;some_activation_a&quot;</span>
+<span class="linenos"> 8</span>        <span class="n">ACTIVATION_B</span> <span class="o">=</span> <span class="s2">&quot;some_activation_b&quot;</span>
+<span class="linenos"> 9</span>        <span class="n">BINARY_ACTIVATION_A</span> <span class="o">=</span> <span class="s2">&quot;binary_activation_a&quot;</span>
+<span class="linenos">10</span>        <span class="n">BINARY_ACTIVATION_B</span> <span class="o">=</span> <span class="s2">&quot;binary_activation_b&quot;</span>
+<span class="linenos">11</span>        <span class="n">EGO_VELO</span> <span class="o">=</span> <span class="s2">&quot;ego_velo&quot;</span>
+<span class="linenos">12</span>
+<span class="linenos">13</span>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="linenos">14</span><span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the signal definition.&quot;&quot;&quot;</span>
+<span class="linenos">15</span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>        <span class="bp">self</span><span class="o">.</span><span class="n">_properties</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">18</span>            <span class="bp">self</span><span class="o">.</span><span class="n">Columns</span><span class="o">.</span><span class="n">ACTIVATION_A</span><span class="p">:</span> <span class="s2">&quot;Example Signal Data 1.activation.sig_a&quot;</span><span class="p">,</span>
+<span class="linenos">19</span>            <span class="bp">self</span><span class="o">.</span><span class="n">Columns</span><span class="o">.</span><span class="n">ACTIVATION_B</span><span class="p">:</span> <span class="s2">&quot;Example Signal Data 1.activation.sig_b&quot;</span><span class="p">,</span>
+<span class="linenos">20</span>            <span class="bp">self</span><span class="o">.</span><span class="n">Columns</span><span class="o">.</span><span class="n">BINARY_ACTIVATION_A</span><span class="p">:</span> <span class="s2">&quot;Example Signal Data 1.aggregation_all.90_a&quot;</span><span class="p">,</span>
+<span class="linenos">21</span>            <span class="c1"># example of providing list of signals and down-casting the values</span>
+<span class="linenos">22</span>            <span class="bp">self</span><span class="o">.</span><span class="n">Columns</span><span class="o">.</span><span class="n">BINARY_ACTIVATION_B</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos">23</span>                <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="p">[</span>
+<span class="linenos">24</span>                    <span class="s2">&quot;Example Signal Data 1.aggregation_all.90_b&quot;</span><span class="p">,</span>
+<span class="linenos">25</span>                    <span class="s2">&quot;Some Device.aggregation_all.90_b&quot;</span><span class="p">,</span>
+<span class="linenos">26</span>                <span class="p">],</span>
+<span class="linenos">27</span>                <span class="s2">&quot;as_type&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">,</span>
+<span class="linenos">28</span>            <span class="p">},</span>
+<span class="linenos">29</span>            <span class="c1"># example of providing single signal and down-casting the values</span>
+<span class="linenos">30</span>            <span class="bp">self</span><span class="o">.</span><span class="n">Columns</span><span class="o">.</span><span class="n">EGO_VELO</span><span class="p">:</span> <span class="p">{</span>
+<span class="linenos">31</span>                <span class="s2">&quot;signal&quot;</span><span class="p">:</span> <span class="s2">&quot;Example Signal Data 1.ego.velocity.x&quot;</span><span class="p">,</span>
+<span class="linenos">32</span>                <span class="s2">&quot;as_type&quot;</span><span class="p">:</span> <span class="s2">&quot;float32&quot;</span><span class="p">,</span>
+<span class="linenos">33</span>            <span class="p">},</span>
+<span class="linenos">34</span>        <span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="debugging-the-test-implementation">
+<h2>Debugging the test implementation<a class="headerlink" href="#debugging-the-test-implementation" title="Permalink to this heading">#</a></h2>
+<p>During the development phase it is useful to run a single testcase with a single input without any complex setup.
+This can be accomplished by calling the test case with <code class="code docutils literal notranslate"><span class="pre">debug(..)</span></code>.</p>
+<p>Debugging for the implementation above would look like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">temp_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">(),</span> <span class="n">open_explorer</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="c1"># Entry point for debugging during development.</span>
+<span class="linenos"> 3</span>    <span class="n">test_bsigs</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">temp_dir</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;test_input_</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">.bsig&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="linenos"> 4</span>    <span class="n">data_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">temp_dir</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="linenos"> 5</span>    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">data_folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos"> 6</span>    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">test_bsigs</span><span class="p">:</span>
+<span class="linenos"> 7</span>        <span class="n">generate_bsig</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="linenos"> 8</span>    <span class="n">debug</span><span class="p">(</span>
+<span class="linenos"> 9</span>        <span class="n">ExampleUsecaseTestCase</span><span class="p">,</span>
+<span class="linenos">10</span>        <span class="o">*</span><span class="n">test_bsigs</span><span class="p">,</span>
+<span class="linenos">11</span>        <span class="n">temp_dir</span><span class="o">=</span><span class="n">temp_dir</span><span class="p">,</span>
+<span class="linenos">12</span>        <span class="n">open_explorer</span><span class="o">=</span><span class="n">open_explorer</span><span class="p">,</span>
+<span class="linenos">13</span>    <span class="p">)</span>
+</pre></div>
+</div>
+<p>View and download the full source code from <a class="reference external" href="https://github-am.geo.conti.de/ADAS-Test-Scripting-Foundation/examples/quickstart/main.py">the TSF examples repository</a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ADAS TSF Examples</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../setup/setup.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Setup Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learner-profile">Learner profile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-scripting-with-tsf">Test scripting with TSF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-testcases-and-teststeps">Setting up Testcases and Teststeps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging-the-test-implementation">Debugging the test implementation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By BA ADAS ENP SIMU KPI
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2012, Continental AG.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

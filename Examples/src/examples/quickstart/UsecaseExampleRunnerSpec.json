@@ -1,0 +1,24 @@
+{
+  "project": "ARS540BW11",
+  "subject_under_test":  {
+     "name": "TSF Debug",
+     "test_discipline": "VSP"
+  },
+  "testrun": "Example Testrun",
+  "generic_input_collection": "Example ERG files",
+
+  "testcases": [
+    "examples.tutorial.carmaker.uc_eba.ExampleUsecaseTestCase"
+  ],
+
+  "input": [
+    {
+      "directory": "D:\\repositories\\tsf_develop\\examples\\data\\carmaker",
+      "file_prefix": "",
+      "file_suffix": "*",
+      "extension": ".erg"
+    }
+  ],
+
+  "temp_dir": "D:\\temp\\vsp_usecase_examples"
+}

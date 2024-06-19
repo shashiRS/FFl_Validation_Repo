@@ -1,0 +1,133 @@
+Understanding command line arguments for report.py
+##################################################
+
+Here is the list of command line arguments that can be used with the report.py script with their definitions:
+
+.. list-table:: Command line arguments for report.py
+    :widths: 25 15 50
+    :header-rows: 1
+
+    * - Parameter
+      - Argument (Type)
+      - Description
+
+    * - "out_directory"
+      - path
+      - (mandaory) directory where the report is created in (temp_dir of runner.py)
+
+    * - "testrun_id"
+      - int
+      - (mandatory) testrun ID
+
+    * - "-s" "\-\-run-spec" "\-\-run_spec"
+      -
+      - full path to the run_spec.json file
+
+    * - "\-\-runspec-headnode" "\-\-runspec_headnode"
+      - select from "LU00160VMA", "LU00156VMA", "LSAS003A", or "OZAS012A"
+      - HPC Head-node
+
+    * - "\-\-runspec-jobid"
+      - int
+      - HPC Job ID
+
+    * - "-d" "\-\-development-details" "\-\-development_details"
+      - 
+      - if set will create a report containing development details
+
+    * - "-i" "\-\-input-directory" "\-\-input_directory" "\-\-input-directories"
+      - str
+      - optional directory to the runner output data (only needed for development report)
+
+    * - "-m" "\-\-matchbox-directory" "\-\-matchbox_directory"
+      - str
+      - optional path to the matchbox directory (only needed for development report)
+
+    * - "\-\-video-directory" "\-\-video_directory"
+      - str
+      - optional path to the video directory (only needed for development report)
+
+    * - "\-\-video-suffix" "\-\-video_suffix"
+      - str
+      - optional file suffix to the videos (only needed for development report)
+
+    * - "\-\-video-prefix" "\-\-video_prefix"
+      - str
+      - optional file prefix to the videos (only needed for development report)
+
+    * - "\-\-overview-plugins" "\-\-overview_plugins"
+      - str
+      - optional list of custom overview classes
+
+    * - "\-\-statistic-plugins" "\-\-statistic_plugins"
+      - str
+      - optional list of statistics classes
+
+    * - "\-\-custom-resource-dir" "\-\-custom_resource_dir"
+      - str
+      - optional directory with custom resources, which will be copied into the report folder
+
+    * - "\-\-custom-template-dir" "\-\-custom_template_dir"
+      - str
+      - optional directories with custom templates, which will be made available to Jinja2
+
+    * - "\-\-clean-dir" "\-\-clean_dir"
+      - 
+      - if set deletes all contents from the report directory
+
+    * - "\-\-from-hpc-preprocessing" "\-\-from_hpc_preprocessing"
+      - 
+      - if set only uses what is there from HPC
+
+    * - "\-\-redo-all" "\-\-redo_all"
+      - 
+      - if set re-computes all fragments, this is very slow
+
+    * - "\-\-copy-local" "\-\-copy_local"
+      - 
+      - if set robocopy the input locally before starting
+
+    * - "\-\-regression" action="store_true"
+      - 
+      - if set regression reporting is done
+
+    * - "\-\-hpc"
+      - 
+      - submit reporting computation to HPC
+
+    * - "\-\-processing-headnode" "\-\-processing_headnode"
+      - str
+      - choose a dedicated Head-node for TSF HPC processing, \-\-hpc option required
+
+    * - "\-\-debug-local"
+      - 
+      - flag to generate a local report for debugging purposes
+
+    * - "\-\-zip"
+      - str
+      - pack report into given the zip path and delete the contents
+
+    * - "\-\-store-location"
+      - str
+      - path to the final report location
+
+    * - "\-\-with-online-assessment"
+      - 
+      - enable assessment in the browser
+
+    * - "\-\-verbose" "-v"
+      - (repeat_count)
+      - raise the logging level to stdout by one level for every count (e.g. -v will raise the logging level from the default WARNING to INFO, -vv will raise the level to DEBUG)
+
+    * - "\-\-quiet" "-q"
+      - (repeat_count)
+      - lowers the logging level to stdout by one level for every count (e.g. -q will lower the logging level from the default WARNING to ERROR)
+
+
+.. note::
+    The following arguments have been deprecated to opt for more standard versions of the same.
+    "\-\-development_details", "\-\-statistic_plugins", "\-\-overview_plugins", "\-\-copy_local", "\-\-processing_headnode", "\-\-from_hpc_preprocessing", "\-\-runspec_headnode", "\-\-input_directory", "\-\-matchbox_directory", "\-\-clean_dir", "\-\-video_directory", "\-\-video_suffix", "\-\-video_prefix", "\-\-custom_resource_dir", "\-\-custom_template_dir", "\-\-redo_all, and "\-\-run_spec"
+
+.. hint::
+    If you are an advanced user and would like to override TSF's default connection parameters or you would like to work with a local database for report.py.
+    Then check out the :ref:`custom database connection parameters<(optional) custom database connection using command line arguments>`.

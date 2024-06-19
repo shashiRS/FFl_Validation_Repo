@@ -1,0 +1,26 @@
+black
+coverage
+pytest
+pytest-cov
+pylint
+mccabe
+toml
+pydocstyle
+pre-commit
+sphinx
+sphinx_autodoc_typehints
+sphinx-book-theme
+sphinx-rtd-theme==1.2.2
+python-docs-theme
+autodocsumm
+pydeps
+watchdog
+wheel
+flake8
+# flake8_isort
+flake8-black
+# flake8-use-fstring
+jupyter-client
+jupyter-core
+alembic
+twine
