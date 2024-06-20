@@ -1,4 +1,4 @@
-adas-tsf==2.6.0
+adas-tsf
 sphinx
 sphinx_autodoc_typehints
 sphinx-book-theme
